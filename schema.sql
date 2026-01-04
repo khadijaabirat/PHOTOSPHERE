@@ -45,7 +45,7 @@ CREATE TABLE Album(
     UNIQUE(nom,id_user)
 );
 CREATE TABLE Album_Photo (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_Album_Photo  INT AUTO_INCREMENT PRIMARY KEY,
     album_id INT NOT NULL,
     photo_id INT NOT NULL,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
