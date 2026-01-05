@@ -1,23 +1,45 @@
 <?php 
-abstract class user{
+abstract class User{
 protected int $id_user;
 protected string $username;
 protected string $email;
-protected string $password;
-protected datetime $createAt;
-protected ?datetime $lastLoging;
-protected ?string $urlPhoto=null;
+protected string $passworde;
+protected DateTime $createAt;
+protected ?DateTime $lastLogin;
+protected ?string $urlphoto=null;
 protected ?string $biographie=null;
 
-public function __constract($username,$email,$password,$createAt,$urlPhoto,$biographie)
-{
+public function __construct($username,$email,$passworde,$urlphoto=null,$biographie=null)
+{  
     $this->username=$username;
     $this->email=$email;
-    $this->password=$password;
-    $this->createAt=new datetime();
-    $this->urlPhoto=$urlPhoto;
+    $this->passworde=$passworde;
+    $this->createAt=new DateTime();
+    $this->urlphoto = $urlphoto;
     $this->biographie=$biographie;
 }
+public function getid(){
+return $this->id_user;
+}
+public function setid(int $id){
+    $this->id_user=$id;
+}
+public function getusername(){
+return $this->username;
+}
+public function getemail(){
+return $this->email;
+}
+public function getpassworde(){
+return $this->passworde;
+}
+public function geturlphoto(){
+return $this->urlphoto;
+}
+public function getbiographie(){
+return $this->biographie;
+}
+    
 
 }
 
