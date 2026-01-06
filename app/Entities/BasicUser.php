@@ -14,7 +14,9 @@ public function getuploadCount(){
     return $this->uploadCount;
 }
 
-
+public function getrole(){
+    return "BasicUser";
+}
 
 }
 ?>

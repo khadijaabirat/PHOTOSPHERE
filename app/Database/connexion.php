@@ -1,25 +1,23 @@
 
 <?php
 class Connection {
-    private ?PDO $pdo = null;
+    private static ?PDO $connection = null;
 
-    public function getPDO(): PDO {
-        if ($this->pdo === null) {
+    public static function getPDO(): PDO {
+        if (self::$connection === null) {
             try {
-                $this->pdo = new PDO(
+                self::$connection = new PDO(
                     "mysql:host=localhost;dbname=photosphere;charset=utf8mb4",
                     "root",
                     "",
-                    [
-                        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-                    ]
-                );
+                    
+                );               
+                 self::$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch (PDOException $e) {
                 die("Erreur de connexion : " . $e->getMessage());
             }
         }
-        return $this->pdo;
+        return self::$connection;
     }
 }
 

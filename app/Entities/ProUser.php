@@ -10,11 +10,14 @@ public function __construct($username,$email,$passworde,$urlphoto=null,$biograph
  $this->subscriptionStart= $subscriptionStart ?? new DateTime();
  $this->subscriptionEnd=$subscriptionEnd ?? (clone $this->subscriptionStart)->modify('+1 month');
 }
-function public getsubscriptionStart(){
+public function getSubscriptionStart(){
     return $this->subscriptionStart;
 }
-function public getsubscriptionEnd(){
+public function getSubscriptionEnd(){
     return $this->subscriptionEnd;
+}
+public function getrole(){
+    return "ProUser";
 }
 }
 

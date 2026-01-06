@@ -5,7 +5,7 @@ CREATE TABLE Utilisateur(
     passworde varchar(300) NOT NULL,
     createdAt timestamp DEFAULT CURRENT_TIMESTAMP,
     lastLogin DATETIME DEFAULT NULL,
-    role ENUM('BasicUser','ProUser','Administrateur','Moderator') NOT null,
+    role ENUM('BasicUser','ProUser','Administrateur','Moderator') DEFAULT 'BasicUser' ,
     urlphoto varchar(200) DEFAULT null,
     biographie varchar(1000) DEFAULT null,
     uploadCount int DEFAULT 0,
@@ -38,12 +38,12 @@ CREATE TABLE Album(
     createdAt timestamp DEFAULT CURRENT_TIMESTAMP,
     uploadAt datetime DEFAULT null,   
     photoCount int DEFAULT 0 CHECK (photoCount<100),
-    Paramètrebinaire ENUM('public','privé') NOT null ,
+    Paramètrebinaire ENUM('public','private') NOT null ,
     id_user int NOT null,
     FOREIGN KEY (coverphoto_id) REFERENCES Photo(id_photo),
     FOREIGN key (id_user) REFERENCES Utilisateur(id_user) ON DELETE CASCADE,
     UNIQUE(nom,id_user)
-);
+); 
 CREATE TABLE Album_Photo (
     id_Album_Photo  INT AUTO_INCREMENT PRIMARY KEY,
     album_id INT NOT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE Album_Photo (
 
 CREATE TABLE Tag(
     id_tag int AUTO_INCREMENT PRIMARY KEY,
-    nom varchar(50) NOT NULL UNIQUE COLLATE utf8_general_ci,
+    nom varchar(50) NOT NULL UNIQUE(URLfriendly),
     URLfriendly varchar(100) NOT NULL ,
     photoCount int DEFAULT 0
 );

@@ -7,8 +7,8 @@
     require_once __DIR__.'/../Entities/Moderator.php';
     require_once __DIR__.'/../Entities/Administrator.php';
 
-    class UserFactory {
-        public function checkrole($row){
+    class  UserFactory {
+        public static function checkrole($row){
         if($row['role']=='BasicUser')
         {
             $user=new BasicUser($row['username'],$row['email'],$row['passworde'],$row['urlphoto'],$row['biographie'],$row['uploadCount']);

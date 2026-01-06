@@ -8,7 +8,10 @@ protected bool $isSuperAdmin;
     $this->isSuperAdmin=$isSuperAdmin;
 }
 public function getisSuperAdmin(){
-    return $this->isSuperAdmin=$isSuperAdmin;
+    return $this->isSuperAdmin;
+}
+public function getrole(){
+    return "Administrateur";
 }
 }
 
