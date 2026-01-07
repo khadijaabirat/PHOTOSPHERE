@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__.'/../Database/connexion.php';
-require_once __DIR__.'../Interfaces/RepositoryInterface.php';
+require_once __DIR__.'/../Interfaces/RepositoryInterface.php';
 require_once __DIR__.'/../Services/UserFactory.php';
 require_once __DIR__.'/../Entities/User.php';
 require_once __DIR__.'/../Entities/BasicUser.php';
@@ -9,7 +9,7 @@ require_once __DIR__.'/../Entities/Moderator.php';
 require_once __DIR__.'/../Entities/Administrator.php';
 
 class UserRepository implements RepositoryInterface{
-    protected $pdo;
+    protected PDO $pdo;
 
     public function __construct() {
         $this->pdo = Connection::getPDO();

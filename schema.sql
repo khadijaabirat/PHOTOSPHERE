@@ -24,7 +24,6 @@ CREATE TABLE Photo(
     dimensions varchar(50) NOT NULL,
     statut ENUM('Publié','brouillon','archivé') DEFAULT "brouillon",
     createdAt timestamp DEFAULT CURRENT_TIMESTAMP,
-    publishedAt datetime DEFAULT null,
     uploadAt datetime DEFAULT null,
     viewCount int DEFAULT 0,
     id_user int NOT null,

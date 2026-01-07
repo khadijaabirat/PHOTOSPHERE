@@ -1,6 +1,6 @@
 <?php
 
-interface Commentable {
+interface Likeable {
 
 public function addLike(int $userId): bool;
 

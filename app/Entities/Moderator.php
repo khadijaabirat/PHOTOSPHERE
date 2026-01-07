@@ -7,10 +7,10 @@ class Moderator extends User {
 { parent::__construct($username,$email,$passworde,$urlphoto,$biographie);
    $this->level=$level;
 }
-public function getlevel(){
+public function getlevel():string{
    return  $this->level;
 }
-public function getrole(){
+public function getrole():string{
     return "Moderator";
 }
 }

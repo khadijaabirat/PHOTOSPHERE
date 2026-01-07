@@ -7,10 +7,15 @@ protected bool $isSuperAdmin;
 { parent::__construct($username,$email,$passworde,$urlphoto,$biographie);
     $this->isSuperAdmin=$isSuperAdmin;
 }
-public function getisSuperAdmin(){
+
+
+public function getisSuperAdmin():bool{
     return $this->isSuperAdmin;
 }
-public function getrole(){
+public function setisSuperAdmin($isSuperAdmin):void{
+     $this->isSuperAdmin=$isSuperAdmin;
+}
+public function getrole():string{
     return "Administrateur";
 }
 }

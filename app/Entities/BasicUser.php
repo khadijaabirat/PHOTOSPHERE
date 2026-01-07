@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__.'/User.php';
+
 class BasicUser extends User{
 protected int $uploadCount=0;
 protected ?int $limit=10;
@@ -10,11 +11,11 @@ public function __construct($username,$email,$passworde,$urlphoto=null,$biograph
     $this->uploadCount=$uploadCount;
 }
 
-public function getuploadCount(){
+public function getuploadCount():int{
     return $this->uploadCount;
 }
 
-public function getrole(){
+public function getrole():string{
     return "BasicUser";
 }
 
