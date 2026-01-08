@@ -15,12 +15,15 @@ class UserRepository implements RepositoryInterface{
         $this->pdo = Connection::getPDO();
     }
     public function findall():array{
-        $stmt=$this->pdo->query("select * from utilisateur");
+        $stmt=$this->pdo->query("select * from books");
         $users=[];
         
         while($row=$stmt->fetch())
         {
             $users[]=UserFactory::checkrole($row);
+                        $user=new BasicUser($row['username'],$row['email'],$row['passworde'],$row['urlphoto'],$row['biographie'],$row['uploadCount']);
+            $user->setId($row['id_user']);
+            return $user;
         }
         return $users;
     }
